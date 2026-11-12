@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>15 Anos • Sophia Vitória | Convite Digital</title>
+  
+  <!-- Informações para compartilhamento elegante no WhatsApp e Redes Sociais -->
+  <meta name="description" content="Com alegria e gratidão, convido você para celebrar meus 15 Anos! Salão Antonieta Eventos • 16/01/2027 às 19:00h. Toque para ver detalhes e confirmar presença.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="15 Anos • Sophia Vitória | Convite Digital">
+  <meta property="og:description" content="Com alegria e gratidão convido você para celebrar meus 15 Anos! Toque para ver o convite interativo e confirmar sua presença.">
+  <meta property="og:image" content="assets/images/convite-principal.jpg">
+  <meta property="og:image:alt" content="Convite de 15 Anos de Sophia Vitória">
+  <meta name="theme-color" content="#3a050d">
+
+  <!-- Estilos Principais -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Estrutura Principal do Convite Digital -->
+  <main class="invite-wrapper" role="main">
+    
+    <div class="card-container">
+      <!-- Arte oficial do convite em alta qualidade e proporção original -->
+      <img 
+        src="assets/images/convite-principal.jpg" 
+        alt="Convite 15 Anos Sophia Vitória - 16/01/2027 às 19h no Salão Antonieta Eventos"
+        class="invite-img"
+        width="576"
+        height="1024"
+        loading="eager"
+        fetchpriority="high"
+      >
+
+      <!-- Sobreposição invisível com os 4 botões interativos (Hotspots) -->
+      <div class="hotspots-overlay" aria-label="Menu interativo do convite">
+        
+        <!-- BOTÃO 1: LOCALIZAÇÃO NO MAPS -->
+        <a 
+          href="https://www.google.com/maps/place/R.+Orlando+Dei+Santi,+2112+-+Campo+Limpo,+Americana+-+SP,+13477-150/@-22.7296836,-47.2978015,17z/data=!4m16!1m9!3m8!1s0x94c89a05fb22242b:0xc89dd355345f5184!2sR.+Orlando+Dei+Santi,+2112+-+Campo+Limpo,+Americana+-+SP,+13477-150!3b1!8m2!3d-22.7299308!4d-47.2977154!10e5!16s%2Fg%2F11gcz3f_62!3m5!1s0x94c89a05fb22242b:0xc89dd355345f5184!8m2!3d-22.7299308!4d-47.2977154!16s%2Fg%2F11gcz3f_62?entry=ttu&g_ep=EgoyMDI2MTEwOS4wIKXMDSoASAFQAw%3D%3D" 
+          id="btn-maps" 
+          class="hotspot-btn hotspot-maps pulse-hint" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Abrir Localização no Google Maps (Salão Antonieta Eventos)"
+          title="Localização no Maps"
+        ></a>
+
+        <!-- BOTÃO 2: SUGESTÕES DE PRESENTES -->
+        <a 
+          href="presentes.html" 
+          id="btn-presentes" 
+          class="hotspot-btn hotspot-presentes pulse-hint"
+          aria-label="Ver Sugestões de Presentes da Sophia"
+          title="Sugestões de Presentes"
+        ></a>
+
+        <!-- BOTÃO 3: CONFIRMAR PRESENÇA -->
+        <a 
+          href="https://assessoriavip.com.br/rsvpUnico/f71be860-ab0a-11f1-ad8f-bb8af7109401" 
+          id="btn-rsvp" 
+          class="hotspot-btn hotspot-rsvp pulse-hint" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Confirmar sua Presença na festa"
+          title="Confirmar Presença"
+        ></a>
+
+        <!-- BOTÃO 4: MANUAL DO CONVIDADO -->
+        <a 
+          href="manual.html" 
+          id="btn-manual" 
+          class="hotspot-btn hotspot-manual pulse-hint"
+          aria-label="Ver Manual do Convidado e Informações Importantes"
+          title="Manual do Convidado"
+        ></a>
+
+      </div>
+    </div>
+
+    <!-- Rodapé discreto com identidade de 15 Anos -->
+    <footer class="site-footer">
+      <span>15 Anos Sophia Vitória</span> • 16 de Janeiro de 2027
+    </footer>
+
+  </main>
+
+  <!-- Notificação Toast (usada em interações) -->
+  <div id="toast-notification" class="toast-notification" aria-live="polite">
+    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- Scripts: Configuração central e Lógica -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

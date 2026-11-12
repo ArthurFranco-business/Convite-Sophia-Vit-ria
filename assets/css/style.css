@@ -1,0 +1,419 @@
+/* ==========================================================================
+   CONVITE DIGITAL 15 ANOS - SOPHIA VITÓRIA
+   Identidade: Vinho, Dourado, Rosé e Champanhe | Mobile-First & Alta Fidelidade
+   ========================================================================== */
+
+/* Importação de tipografia refinada para elementos de navegação e botões */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-wine-dark: #3a050d;
+  --color-wine-primary: #6b0f1d;
+  --color-wine-light: #8e1a2c;
+  --color-gold-deep: #aa771c;
+  --color-gold-primary: #cba135;
+  --color-gold-light: #f5e4ab;
+  --color-gold-shimmer: rgba(203, 161, 53, 0.4);
+  --color-cream-bg: #f8efe6;
+  --color-cream-card: #fdfaf6;
+  --color-cream-border: #ebd9cb;
+  --color-text-dark: #351a1e;
+  --color-text-muted: #75555c;
+
+  --max-width-mobile: 520px;
+  --transition-smooth: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --shadow-lux: 0 20px 45px rgba(60, 10, 20, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset básico e preparação mobile-first */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+  background-color: var(--color-wine-dark);
+}
+
+body {
+  min-height: 100%;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-text-dark);
+  background: radial-gradient(circle at 50% 30%, #58101a 0%, #30050c 60%, #1d0207 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container do Convite Mobile-First */
+.invite-wrapper {
+  width: 100%;
+  max-width: var(--max-width-mobile);
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: var(--color-cream-bg);
+  box-shadow: var(--shadow-lux);
+}
+
+/* Em telas maiores (desktops e tablets), o convite fica centralizado com moldura elegante */
+@media (min-width: 600px) {
+  body {
+    padding: 30px 16px;
+  }
+  .invite-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(203, 161, 53, 0.45);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ==========================================================================
+   PÁGINA PRINCIPAL - CONVITE INTERATIVO COM OS 4 BOTÕES HOTSPOTS
+   ========================================================================== */
+.card-container {
+  width: 100%;
+  position: relative;
+  line-height: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.invite-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  aspect-ratio: 576 / 1024;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Sobreposição com os 4 hotspots transparentes */
+.hotspots-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Apenas os botões internos capturam cliques */
+}
+
+/* Botões Hotspots: transparentes e exatamente sobre a arte */
+.hotspot-btn {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  padding: 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-smooth), filter var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+/* Posicionamento calibrado nos 4 botões da arte original (576 x 1024) */
+.hotspot-maps {
+  top: 76.0%;
+  left: 2.5%;
+  width: 22.5%;
+  height: 14.5%;
+}
+
+.hotspot-presentes {
+  top: 76.0%;
+  left: 26.8%;
+  width: 22.5%;
+  height: 14.5%;
+}
+
+.hotspot-rsvp {
+  top: 76.0%;
+  left: 50.8%;
+  width: 22.5%;
+  height: 14.5%;
+}
+
+.hotspot-manual {
+  top: 76.0%;
+  left: 74.8%;
+  width: 22.5%;
+  height: 14.5%;
+}
+
+/* Feedback sutil ao tocar / passar o mouse: brilho dourado e escala delicada */
+.hotspot-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(203, 161, 53, 0.45);
+}
+
+.hotspot-btn:active {
+  transform: scale(0.94);
+  box-shadow: 0 0 8px rgba(203, 161, 53, 0.3);
+}
+
+.hotspot-btn:focus-visible {
+  outline: 2px solid var(--color-gold-primary);
+  outline-offset: 3px;
+}
+
+/* Efeito suave de pulso para indicar interatividade sutil nos botões */
+.pulse-hint {
+  animation: subtleGlow 3.5s infinite ease-in-out;
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(203, 161, 53, 0);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(203, 161, 53, 0.35);
+  }
+}
+
+/* ==========================================================================
+   PÁGINAS INTERNAS (SUGESTÕES DE PRESENTES & MANUAL DO CONVIDADO)
+   ========================================================================== */
+.secondary-page-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  aspect-ratio: 683 / 1024;
+}
+
+/* Barra elegante e discreta de voltar */
+.back-bar {
+  width: 100%;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, #440710 0%, #290309 100%);
+  border-bottom: 1px solid rgba(203, 161, 53, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-gold-light);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(203, 161, 53, 0.4);
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: all var(--transition-smooth);
+}
+
+.btn-back:hover {
+  background: rgba(203, 161, 53, 0.2);
+  color: #fff;
+  border-color: var(--color-gold-primary);
+  transform: translateX(-2px);
+}
+
+.btn-back svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform var(--transition-smooth);
+}
+
+.btn-back:hover svg {
+  transform: translateX(-3px);
+}
+
+.page-title-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-gold-primary);
+  font-weight: 600;
+}
+
+/* Área auxiliar inferior refinada (apenas para facilitar cópia PIX e RSVP) */
+.page-actions-footer {
+  width: 100%;
+  padding: 18px 20px 24px;
+  background-color: var(--color-cream-bg);
+  border-top: 1px solid var(--color-cream-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.pix-copy-box {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(203, 161, 53, 0.35);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(60, 10, 20, 0.05);
+}
+
+.pix-copy-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-wine-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.pix-buttons-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-pix-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fdfaf6;
+  border: 1px solid rgba(203, 161, 53, 0.4);
+  color: var(--color-wine-dark);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 9px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.btn-pix-copy:hover {
+  background: #f7eee2;
+  border-color: var(--color-gold-deep);
+}
+
+.btn-pix-copy:active {
+  transform: scale(0.97);
+}
+
+.btn-pix-copy svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-wine-primary);
+}
+
+.btn-primary-action {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--color-wine-primary) 0%, var(--color-wine-dark) 100%);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold-primary);
+  padding: 13px 18px;
+  border-radius: 25px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(60, 10, 20, 0.25);
+  transition: all var(--transition-smooth);
+}
+
+.btn-primary-action:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(60, 10, 20, 0.35);
+}
+
+.btn-primary-action svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Toast de notificação refinado para "Chave Pix Copiada" */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(30, 4, 8, 0.95);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold-primary);
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.toast-notification.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.toast-notification svg {
+  width: 18px;
+  height: 18px;
+  fill: #3cd070;
+}
+
+/* Rodapé discreto no final */
+.site-footer {
+  padding: 14px 10px 18px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.6px;
+  width: 100%;
+}
+
+.site-footer span {
+  font-family: 'Cinzel', serif;
+  color: var(--color-wine-primary);
+  font-weight: 600;
+}
